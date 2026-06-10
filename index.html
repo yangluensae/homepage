@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yang Lu — Papers</title>
-<meta name="description" content="Publications of Yang Lu, Associate Professor of Mathematics and Statistics, Concordia University. Actuarial science, econometrics, count time series, and financial mathematics.">
+<meta name="description" content="Publications of Yang Lu, Associate Professor of Mathematics and Statistics, Concordia University. Time series and count data modeling, financial econometrics, and actuarial science.">
 
 <!--
-  PROFILE LINKS: a few buttons in the header are placeholders.
-  Replace the href="#" values below (Google Scholar, ORCID, arXiv) with your URLs,
-  or delete the ones you don't want. Email and CV are already wired up.
+  PROFILE LINKS: Google Scholar / ORCID / arXiv buttons are placeholders (href="#").
+  Replace with your URLs or delete. Email and CV are wired up.
+  PHOTO: profile.jpeg must sit in the same folder as this file.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,259 +18,109 @@
 
 <style>
   :root{
-    --paper:#FAFAF7;
-    --paper-2:#F1F0EA;
-    --ink:#17201F;
-    --muted:#5C6562;
-    --faint:#8A918C;
-    --rule:#E2E0D8;
-    --rule-strong:#CFCCC2;
-    --accent:#155E63;
-    --accent-press:#0E4A4E;
-    --gold:#8C6113;
-    --gold-bg:#F3EBD8;
-    --teal-bg:#E1ECEC;
-    --green-bg:#E4EDE3;
-    --amber-bg:#F4E9D6;
-    --slate-bg:#EAEAE6;
-
+    --paper:#FAFAF7; --paper-2:#F1F0EA; --ink:#17201F; --muted:#5C6562; --faint:#8A918C;
+    --rule:#E2E0D8; --rule-strong:#CFCCC2; --accent:#155E63; --accent-press:#0E4A4E;
+    --gold:#8C6113; --gold-bg:#F3EBD8; --teal-bg:#E1ECEC;
     --serif:"Newsreader",Georgia,"Times New Roman",serif;
     --display:"Fraunces",Georgia,serif;
     --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
-
     --maxw:880px;
   }
-
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--serif);
-    font-size:18px;
-    line-height:1.55;
-    font-optical-sizing:auto;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   a{color:var(--accent);text-decoration:none}
   a:hover{color:var(--accent-press)}
   ::selection{background:#cfe3e2;color:var(--ink)}
 
-  /* ---------- top nav ---------- */
-  .nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(250,250,247,.88);
-    backdrop-filter:saturate(140%) blur(8px);
-    border-bottom:1px solid var(--rule);
-  }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;
-    padding:.7rem 1.4rem;
-    display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  }
-  .brand{
-    font-family:var(--mono);
-    font-size:.82rem;font-weight:600;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink);
-  }
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.88);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:.7rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{font-family:var(--mono);font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
   .brand span{color:var(--accent)}
   .nav-links{display:flex;gap:1.15rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-  .nav-links a{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
-    text-transform:uppercase;color:var(--muted);
-  }
+  .nav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .nav-links a:hover{color:var(--accent)}
 
-  /* ---------- layout ---------- */
   main{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem 5rem}
 
-  /* ---------- hero ---------- */
   .hero{padding:3.6rem 0 2.2rem;border-bottom:1px solid var(--rule)}
   .hero-grid{display:flex;gap:2.8rem;align-items:center;justify-content:space-between}
   .hero-main{flex:1 1 auto;min-width:0}
   .hero-photo{flex:0 0 auto;margin:0;width:236px}
   .hero-photo img{display:block;width:100%;height:auto;border-radius:3px;border:1px solid var(--rule-strong)}
-  .eyebrow{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--accent);margin:0 0 1rem;
-  }
-  h1{
-    font-family:var(--display);
-    font-weight:500;
-    font-size:clamp(2.7rem,7vw,4.4rem);
-    line-height:.98;letter-spacing:-.015em;
-    margin:0 0 1rem;
-    font-variation-settings:"opsz" 144,"SOFT" 0,"WONK" 0;
-  }
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem}
+  h1{font-family:var(--display);font-weight:500;font-size:clamp(2.7rem,7vw,4.4rem);line-height:.98;letter-spacing:-.015em;margin:0 0 1rem;font-variation-settings:"opsz" 144,"SOFT" 0,"WONK" 0}
   .role{font-size:1.06rem;color:var(--ink);margin:0 0 .25rem;font-weight:500}
   .role .sep{color:var(--faint);padding:0 .45em}
-  .identity{
-    font-size:1.12rem;color:var(--muted);max-width:48ch;
-    margin:1.1rem 0 1.7rem;line-height:1.5;
-  }
+  .identity{font-size:1.12rem;color:var(--muted);max-width:48ch;margin:1.1rem 0 1.7rem;line-height:1.5}
   .profile{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.5rem}
-  .profile a{
-    font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;
-    color:var(--ink);background:transparent;
-    border:1px solid var(--rule-strong);border-radius:2px;
-    padding:.4rem .7rem;display:inline-flex;align-items:center;gap:.4em;
-    transition:border-color .15s,color .15s,background .15s;
-  }
+  .profile a{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink);background:transparent;border:1px solid var(--rule-strong);border-radius:2px;padding:.4rem .7rem;display:inline-flex;align-items:center;gap:.4em;transition:border-color .15s,color .15s,background .15s}
   .profile a:hover{border-color:var(--accent);color:var(--accent);background:var(--teal-bg)}
   .profile a .arr{color:var(--faint);font-size:.9em}
   .profile a:hover .arr{color:var(--accent)}
-
-  .stats{
-    font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;
-    color:var(--faint);display:flex;flex-wrap:wrap;gap:.2rem .9rem;
-  }
+  .stats{font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;color:var(--faint);display:flex;flex-wrap:wrap;gap:.2rem .9rem}
   .stats b{color:var(--ink);font-weight:600}
 
-  /* ---------- controls ---------- */
-  .controls{
-    position:sticky;top:46px;z-index:40;
-    background:var(--paper);
-    padding:.9rem 0;margin-bottom:.5rem;
-    border-bottom:1px solid var(--rule);
-  }
+  .controls{position:sticky;top:46px;z-index:40;background:var(--paper);padding:.9rem 0;margin-bottom:.5rem;border-bottom:1px solid var(--rule)}
   .controls-row{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:space-between}
   .pills{display:flex;flex-wrap:wrap;gap:.4rem;overflow-x:auto}
-  .pill{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
-    color:var(--muted);background:transparent;
-    border:1px solid var(--rule-strong);border-radius:100px;
-    padding:.34rem .8rem;cursor:pointer;white-space:nowrap;
-    transition:all .15s;
-  }
+  .pill{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--muted);background:transparent;border:1px solid var(--rule-strong);border-radius:100px;padding:.34rem .8rem;cursor:pointer;white-space:nowrap;transition:all .15s}
   .pill:hover{border-color:var(--accent);color:var(--accent)}
-  .pill[aria-pressed="true"]{
-    background:var(--ink);color:var(--paper);border-color:var(--ink);
-  }
-  .pill .n{opacity:.55;margin-left:.45em;font-size:.92em}
+  .pill[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .search{position:relative;flex:0 0 auto}
-  .search input{
-    font-family:var(--mono);font-size:.78rem;color:var(--ink);
-    background:var(--paper);border:1px solid var(--rule-strong);
-    border-radius:100px;padding:.4rem .9rem .4rem 2rem;width:200px;
-    transition:border-color .15s,width .2s;
-  }
+  .search input{font-family:var(--mono);font-size:.78rem;color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:100px;padding:.4rem .9rem .4rem 2rem;width:200px;transition:border-color .15s,width .2s}
   .search input:focus{outline:none;border-color:var(--accent);width:230px}
   .search svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--faint)}
 
-  /* ---------- section ---------- */
-  .area{padding:2.6rem 0 .6rem;scroll-margin-top:120px}
-  .area-head{margin-bottom:1.6rem}
-  .area-eyebrow{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--accent);
-    display:flex;align-items:baseline;gap:.7rem;margin-bottom:.55rem;
-  }
+  .area{padding:2.4rem 0 .6rem;scroll-margin-top:120px}
+  .area-head{margin-bottom:1.4rem}
+  .area-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:baseline;gap:.7rem;margin-bottom:.55rem}
   .area-eyebrow .idx{color:var(--faint)}
-  .area-eyebrow .count{color:var(--faint);letter-spacing:.06em}
-  .area-title{
-    font-family:var(--display);font-weight:500;
-    font-size:1.7rem;letter-spacing:-.01em;margin:0 0 .5rem;
-    font-variation-settings:"opsz" 40,"SOFT" 0;
-  }
+  .area-title{font-family:var(--display);font-weight:500;font-size:1.7rem;letter-spacing:-.01em;margin:0 0 .5rem;font-variation-settings:"opsz" 40,"SOFT" 0}
   .area-desc{color:var(--muted);font-size:1rem;max-width:60ch;margin:0}
 
-  /* ---------- publication list ---------- */
   ol.pubs{list-style:none;margin:0;padding:0}
-  .pub{
-    display:grid;
-    grid-template-columns:4.2rem 1fr;
-    gap:0 1.2rem;
-    padding:1.15rem 0 1.15rem .9rem;
-    border-top:1px solid var(--rule);
-    border-left:2px solid transparent;
-    margin-left:-0.9rem;
-    transition:border-left-color .18s,background .18s;
-  }
+  .pub{display:grid;grid-template-columns:4.2rem 1fr;gap:0 1.2rem;padding:.95rem 0 .95rem .9rem;border-top:1px solid var(--rule);border-left:2px solid transparent;margin-left:-0.9rem;transition:border-left-color .18s,background .18s}
   .pub:hover{border-left-color:var(--accent);background:linear-gradient(90deg,var(--paper-2),transparent 65%)}
   ol.pubs .pub:last-child{border-bottom:1px solid var(--rule)}
-
-  .pub-mark{
-    font-family:var(--mono);font-size:.8rem;color:var(--muted);
-    padding-top:.28rem;line-height:1.3;letter-spacing:.02em;
-  }
+  .pub-mark{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:.22rem;line-height:1.3;letter-spacing:.02em}
   .pub-mark .yr{color:var(--ink);font-weight:600;display:block}
-  .pub-mark .st{display:block;color:var(--faint);font-size:.72rem;margin-top:.15rem}
-
-  .pub-title{
-    font-family:var(--serif);font-weight:600;font-size:1.12rem;
-    line-height:1.32;letter-spacing:-.003em;margin:.1rem 0 .35rem;color:var(--ink);
-  }
-  .authors{font-size:.96rem;color:var(--muted);font-style:italic;margin:0 0 .4rem;line-height:1.45}
-
-  .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem}
+  .pub-mark .st{display:block;color:var(--faint);font-size:.68rem;margin-top:.15rem;text-transform:uppercase;letter-spacing:.04em}
+  .pub-title{font-family:var(--serif);font-weight:600;font-size:1.1rem;line-height:1.3;letter-spacing:-.003em;margin:.05rem 0 .3rem;color:var(--ink)}
+  .authors{font-size:.95rem;color:var(--muted);font-style:italic;margin:0 0 .35rem;line-height:1.4}
+  .meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .8rem}
   .venue{font-size:.95rem;color:var(--ink)}
   .venue .vol{color:var(--muted)}
-
-  .tag{
-    font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;
-    text-transform:uppercase;padding:.18rem .5rem;border-radius:2px;line-height:1.1;
-    white-space:nowrap;
-  }
-  .tag.forth{color:#2f6e4f;background:var(--green-bg)}
-  .tag.rr{color:var(--gold);background:var(--amber-bg)}
-  .tag.sub{color:var(--gold);background:var(--amber-bg)}
-  .tag.wp{color:#566;background:var(--slate-bg)}
-  .badge{
-    font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;
-    color:var(--gold);background:var(--gold-bg);
-    padding:.18rem .5rem;border-radius:2px;white-space:nowrap;
-  }
+  .meta a{font-family:var(--mono);font-size:.71rem;letter-spacing:.02em;color:var(--accent);display:inline-flex;align-items:center;gap:.3em;white-space:nowrap}
+  .meta a .arr{color:var(--faint);font-size:.85em;transition:color .15s}
+  .meta a:hover{color:var(--accent-press)}
+  .meta a:hover .arr{color:var(--accent)}
+  .badge{font-family:var(--mono);font-size:.63rem;letter-spacing:.04em;color:var(--gold);background:var(--gold-bg);padding:.16rem .45rem;border-radius:2px;white-space:nowrap}
   .badge::before{content:"\2605 ";font-size:.85em}
+  .empty{display:none;font-family:var(--mono);font-size:.85rem;color:var(--faint);padding:2rem 0;text-align:center}
 
-  .links{display:flex;flex-wrap:wrap;gap:.2rem .9rem;margin-top:.55rem}
-  .links a{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--accent);
-    display:inline-flex;align-items:center;gap:.3em;
-  }
-  .links a .arr{color:var(--faint);font-size:.85em;transition:color .15s}
-  .links a:hover .arr{color:var(--accent)}
-
-  .empty{
-    display:none;font-family:var(--mono);font-size:.85rem;color:var(--faint);
-    padding:2rem 0;text-align:center;
-  }
-
-  /* ---------- footer ---------- */
-  footer{
-    max-width:var(--maxw);margin:0 auto;padding:2.5rem 1.4rem 3rem;
-    border-top:1px solid var(--rule);
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
-    color:var(--faint);display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;justify-content:space-between;
-  }
+  footer{max-width:var(--maxw);margin:0 auto;padding:2.5rem 1.4rem 3rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--faint);display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;justify-content:space-between}
   footer a{color:var(--muted)}
   footer a:hover{color:var(--accent)}
 
-  /* ---------- responsive ---------- */
   @media (max-width:620px){
     body{font-size:17px}
-    .nav-inner{padding:.6rem 1.1rem}
-    .nav-links a:nth-child(n+4){display:none}
+    .nav-inner{padding:.55rem 1.1rem;flex-wrap:wrap;gap:.35rem .9rem}
+    .nav-links{width:100%;justify-content:flex-start;gap:.8rem 1rem}
     main{padding:0 1.1rem 4rem}
     .hero{padding:2.6rem 0 1.8rem}
     .hero-grid{flex-direction:column;align-items:flex-start;gap:1.4rem}
     .hero-photo{order:-1;width:150px}
-    .controls{top:44px}
+    .controls{position:static}
     .pub{grid-template-columns:1fr;gap:.1rem;padding-left:.8rem;margin-left:-0.8rem}
-    .pub-mark{padding-top:0;margin-bottom:.45rem;display:flex;gap:.7rem;align-items:baseline}
+    .pub-mark{padding-top:0;margin-bottom:.4rem;display:flex;gap:.7rem;align-items:baseline}
     .pub-mark .yr,.pub-mark .st{display:inline}
     .search input,.search input:focus{width:100%}
     .search{flex:1 1 100%;order:3}
     .controls-row{gap:.7rem}
   }
-
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none!important;animation:none!important}
-    html{scroll-behavior:auto}
-  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
   @media (min-width:621px){html{scroll-behavior:smooth}}
-
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
 </style>
 </head>
@@ -280,10 +130,9 @@
   <div class="nav-inner">
     <a class="brand" href="#top">YANG&nbsp;<span>LU</span></a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#timeseries">Time series</a>
       <a href="#nonlife">Non-life</a>
       <a href="#life">Life</a>
-      <a href="#finance">Finance</a>
-      <a href="#timeseries">Time series</a>
       <a href="https://sites.google.com/site/luyangensae/home/cv">CV</a>
     </nav>
   </div>
@@ -298,18 +147,14 @@
     <h1>Yang Lu</h1>
     <p class="role">Associate Professor<span class="sep">·</span>Mathematics &amp; Statistics<span class="sep">·</span>Concordia University</p>
     <p class="identity">I build statistical and econometric models for insurance and finance — count and integer-valued time series, dependence and point processes, mortality and longevity, and model risk.</p>
-
     <div class="profile">
       <a href="mailto:yang.lu@concordia.ca">Email <span class="arr">&#8599;</span></a>
       <a href="https://sites.google.com/site/luyangensae/home/cv">CV <span class="arr">&#8599;</span></a>
-      <!-- Replace href="#" with your real URLs, or delete -->
       <a href="#" title="Add your Google Scholar URL">Google Scholar <span class="arr">&#8599;</span></a>
       <a href="#" title="Add your ORCID URL">ORCID <span class="arr">&#8599;</span></a>
       <a href="#" title="Add your arXiv author URL">arXiv <span class="arr">&#8599;</span></a>
     </div>
-
     <p class="stats">
-      <span><b id="stat-total">&mdash;</b> papers</span>
       <span><b>4</b> research areas</span>
       <span>Updated <b>June 2026</b></span>
     </p>
@@ -323,11 +168,11 @@
   <div class="controls">
     <div class="controls-row">
       <div class="pills" role="group" aria-label="Filter by status">
-        <button class="pill" data-filter="all" aria-pressed="true">All<span class="n" data-c="all"></span></button>
-        <button class="pill" data-filter="pub" aria-pressed="false">Published<span class="n" data-c="pub"></span></button>
-        <button class="pill" data-filter="forth" aria-pressed="false">Forthcoming<span class="n" data-c="forth"></span></button>
-        <button class="pill" data-filter="review" aria-pressed="false">Under review<span class="n" data-c="review"></span></button>
-        <button class="pill" data-filter="wp" aria-pressed="false">Working<span class="n" data-c="wp"></span></button>
+        <button class="pill" data-filter="all" aria-pressed="true">All</button>
+        <button class="pill" data-filter="pub" aria-pressed="false">Published</button>
+        <button class="pill" data-filter="forth" aria-pressed="false">Forthcoming</button>
+        <button class="pill" data-filter="review" aria-pressed="false">Under review</button>
+        <button class="pill" data-filter="wp" aria-pressed="false">Working</button>
       </div>
       <div class="search">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -338,22 +183,231 @@
 
   <div class="empty" id="empty">No papers match.</div>
 
+  <!-- ============ TIME SERIES & COUNT DATA ============ -->
+  <section class="area" id="timeseries">
+    <div class="area-head">
+      <div class="area-eyebrow"><span class="idx">01</span><span>Time series &amp; count data</span></div>
+      <h2 class="area-title">Time series and count data modeling</h2>
+      <p class="area-desc">My interest in time series is mainly in two areas: affine processes (especially those that are integer-valued, noncausal, or nonstationary), as well as determinantal point processes.</p>
+    </div>
+    <ol class="pubs">
+
+      <li class="pub" data-status="forth">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
+        <div>
+          <p class="pub-title">Estimation of the intercept parameter in an integrated Galton&ndash;Watson process</p>
+          <p class="authors">Single author</p>
+          <div class="meta"><span class="venue">Journal of Time Series Analysis</span> <a href="https://arxiv.org/abs/2601.06317">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2026</span></div>
+        <div>
+          <p class="pub-title">Markov determinantal point process for dynamic random set</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Journal of Time Series Analysis <span class="vol">(online first)</span></span> <a href="https://doi.org/10.1111/jtsa.12823">DOI <span class="arr">&#8599;</span></a> <a href="https://www.researchgate.net/publication/374976333_Markov_Determinantal_Point_Process_for_Dynamic_Random_Sets">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2026</span></div>
+        <div>
+          <p class="pub-title">Partial observability of implied volatility matrices: identification and covolatilities filtering</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Mathematical Finance<span class="vol">, 36(1), 48&ndash;66</span></span> <a href="https://onlinelibrary.wiley.com/doi/10.1111/mafi.12468">Open access <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2026</span></div>
+        <div>
+          <p class="pub-title">Backtesting expectile: disentangling unconditional coverage and independence properties</p>
+          <p class="authors">With Jesus Armando de Ita Solis, Mélina Mailhot &amp; Xiaochun Meng</p>
+          <div class="meta"><span class="venue">Risk Sciences<span class="vol">, art. 100051</span></span> <a href="https://doi.org/10.1016/j.risk.2026.100051">Open access <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2025</span></div>
+        <div>
+          <p class="pub-title">SIR model with stochastic transmission</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Canadian Journal of Statistics</span> <a href="https://doi.org/10.1002/cjs.11835">DOI <span class="arr">&#8599;</span></a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3730349">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2025</span></div>
+        <div>
+          <p class="pub-title">Mixed causal&ndash;noncausal count process</p>
+          <p class="authors">With Jian Pei &amp; Fukang Zhu</p>
+          <div class="meta"><span class="venue">TEST<span class="vol">, 34(2)</span></span> <a href="https://doi.org/10.1007/s11749-024-00960-8">DOI <span class="arr">&#8599;</span></a> <a href="https://www.researchgate.net/publication/370980982_Mixed_Causal-Noncausal_Count_Process">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2025</span></div>
+        <div>
+          <p class="pub-title">Forecasting natural disaster frequencies using nonstationary count time series models</p>
+          <p class="authors">With Jian Pei</p>
+          <div class="meta"><span class="venue">Statistical Papers<span class="vol">, 66(3)</span></span> <a href="https://doi.org/10.1007/s00362-025-01691-0">DOI <span class="arr">&#8599;</span></a> <a href="https://www.researchgate.net/publication/374751092_Forecasting_natural_disaster_frequencies_using_nonstationary_count_time_series_models">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2023</span></div>
+        <div>
+          <p class="pub-title">Noncausal affine processes with applications to derivative pricing</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Mathematical Finance<span class="vol">, 33(3), 766&ndash;796</span></span> <a href="https://doi.org/10.1111/mafi.12384">Open access <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2021</span></div>
+        <div>
+          <p class="pub-title">Noncausal counting processes: a queuing perspective</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Electronic Journal of Statistics<span class="vol">, 15(2), 3852&ndash;3891</span></span> <a href="https://doi.org/10.1214/21-EJS1875">Open access <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2021</span></div>
+        <div>
+          <p class="pub-title">The predictive distributions of thinning-based count processes</p>
+          <p class="authors">Single author</p>
+          <div class="meta"><span class="venue">Scandinavian Journal of Statistics<span class="vol">, 48(1), 42&ndash;67</span></span> <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/sjos.12438">DOI <span class="arr">&#8599;</span></a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3095219">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2020</span></div>
+        <div>
+          <p class="pub-title">A simple parameter-driven binary time series model</p>
+          <p class="authors">Single author</p>
+          <div class="meta"><span class="venue">Journal of Forecasting<span class="vol">, 39(2), 187&ndash;199</span></span> <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/for.2621">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/uat0zwyhbo0anl1/autoregressivedirichletprocess.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2019</span></div>
+        <div>
+          <p class="pub-title">Negative binomial autoregressive process with stochastic intensity</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Journal of Time Series Analysis<span class="vol">, 40(2), 225&ndash;247</span></span> <a href="https://doi.org/10.1111/jtsa.12441">DOI <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2019</span></div>
+        <div>
+          <p class="pub-title">Bivariate integer-autoregressive process with an application to mutual fund flows</p>
+          <p class="authors">With Serge Darolles, Gaëlle Le Fol &amp; Ran Sun</p>
+          <div class="meta"><span class="venue">Journal of Multivariate Analysis<span class="vol">, 173, 181&ndash;203</span></span> <a href="https://doi.org/10.1016/j.jmva.2019.02.015">DOI <span class="arr">&#8599;</span></a> <a href="http://ssrn.com/abstract=3222947">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2019</span></div>
+        <div>
+          <p class="pub-title">Least impulse response estimator for stress test exercises</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><span class="venue">Journal of Banking &amp; Finance<span class="vol">, 103, 62&ndash;77</span></span> <a href="https://doi.org/10.1016/j.jbankfin.2019.03.021">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/m7w7irg6g0fbshk/LIR_nonblindedversion.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="sub">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Submitted</span></div>
+        <div>
+          <p class="pub-title">Ultra long run term structure models</p>
+          <p class="authors">With Christian Gouriéroux &amp; Alain Monfort</p>
+          <div class="meta"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4160206">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="sub">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Submitted</span></div>
+        <div>
+          <p class="pub-title">Backtesting Expected Shortfall: accounting for both duration and severity using bivariate orthogonal polynomials</p>
+          <p class="authors">With Sullivan Hué &amp; Christophe Hurlin</p>
+          <div class="meta"><a href="https://arxiv.org/abs/2405.02012">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="rr">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">R&amp;R</span></div>
+        <div>
+          <p class="pub-title">Risk analysis of random sets with applications to basket derivatives</p>
+          <p class="authors">With Christian Gouriéroux &amp; Alain Monfort</p>
+          <div class="meta"><span class="venue">Journal of Financial Econometrics</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4534473">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="wp">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
+        <div>
+          <p class="pub-title">Corrigendum and comments to Tang &amp; Tang (2023), &ldquo;The Poisson binomial distribution &mdash; old and new&rdquo;</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><a href="https://www.researchgate.net/publication/377111614_Corrigendum_and_Comments_to_Tang_and_Tang_2023_The_Poisson_Binomial_Distribution-Old_and_New_Statistical_Science">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="wp">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
+        <div>
+          <p class="pub-title">Linear-type conditional specifications for multivariate count variables</p>
+          <p class="authors">With Wei Sun</p>
+          <div class="meta"><a href="https://arxiv.org/abs/2502.20227">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="wp">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
+        <div>
+          <p class="pub-title">A simple estimator of the correlation kernel matrix of a determinantal point process</p>
+          <p class="authors">With Christian Gouriéroux</p>
+          <div class="meta"><a href="https://arxiv.org/abs/2505.14529">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="wp">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
+        <div>
+          <p class="pub-title">Near-unit-root theory for affine processes</p>
+          <p class="authors">With Gael Anne, Xuewen Yu &amp; Xiaowen Zhou</p>
+          <div class="meta"><a href="https://arxiv.org/abs/2605.27859">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
   <!-- ============ NON-LIFE ============ -->
   <section class="area" id="nonlife">
     <div class="area-head">
-      <div class="area-eyebrow"><span class="idx">01</span><span>Non-life insurance</span><span class="count" data-count></span></div>
+      <div class="area-eyebrow"><span class="idx">02</span><span>Non-life insurance</span></div>
       <h2 class="area-title">Non-life insurance</h2>
       <p class="area-desc">Ratemaking, credibility theory, and random-effects models for property and casualty insurance.</p>
     </div>
     <ol class="pubs">
+
+      <li class="pub" data-status="forth">
+        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
+        <div>
+          <p class="pub-title">Cyber insurance modeling: a discrete multivariate count process approach</p>
+          <p class="authors">With Wenjun Zhu &amp; Jinggong Zhang</p>
+          <div class="meta"><span class="venue">Scandinavian Actuarial Journal</span> <a href="https://doi.org/10.1080/03461238.2023.2289374">DOI <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
 
       <li class="pub" data-status="pub">
         <div class="pub-mark"><span class="yr">2026</span></div>
         <div>
           <p class="pub-title">Modeling and a posteriori ratemaking for multiple perils with the Wishart&ndash;gamma random effects model</p>
           <p class="authors">With Jaeyoun Ahn, Minjeong Park &amp; Minji Park</p>
-          <div class="meta"><span class="venue">North American Actuarial Journal <span class="vol">(online first)</span></span></div>
-          <div class="links"><a href="https://www.tandfonline.com/eprint/GTKEI2Z9EUXZMCGIXBHW/full?target=10.1080/10920277.2026.2662305">DOI <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">North American Actuarial Journal <span class="vol">(online first)</span></span> <a href="https://www.tandfonline.com/eprint/GTKEI2Z9EUXZMCGIXBHW/full?target=10.1080/10920277.2026.2662305">DOI <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -362,8 +416,7 @@
         <div>
           <p class="pub-title">Accounting for model risk in property and casualty insurance</p>
           <p class="authors">With Hanieh Amjadian &amp; Patrice Gaillardetz</p>
-          <div class="meta"><span class="venue">Variance</span><span class="badge">CAS grant</span></div>
-          <div class="links"><a href="https://variancejournal.org/article/137034-accounting-for-model-risk-in-property-and-casualty-insurance">DOI <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Variance</span> <span class="badge">CAS grant</span> <a href="https://variancejournal.org/article/137034-accounting-for-model-risk-in-property-and-casualty-insurance">DOI <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -372,11 +425,7 @@
         <div>
           <p class="pub-title">An observation-driven state-space count model for experience rating</p>
           <p class="authors">With Jaeyoun Ahn, Himchan Jeong &amp; Mario Wüthrich</p>
-          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 125, art. 103149</span></span></div>
-          <div class="links">
-            <a href="https://www.sciencedirect.com/science/article/pii/S0167668725000964">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://arxiv.org/abs/2308.16058">Working paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 125, art. 103149</span></span> <a href="https://www.sciencedirect.com/science/article/pii/S0167668725000964">DOI <span class="arr">&#8599;</span></a> <a href="https://arxiv.org/abs/2308.16058">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -385,11 +434,7 @@
         <div>
           <p class="pub-title">Hierarchical random-effects model for the insurance pricing of vehicles belonging to a fleet</p>
           <p class="authors">With Georges Dionne &amp; Denise Desjardins</p>
-          <div class="meta"><span class="venue">Journal of Applied Econometrics<span class="vol">, 38(2), 242&ndash;259</span></span></div>
-          <div class="links">
-            <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jae.2949">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://chairegestiondesrisques.hec.ca/wp-content/uploads/2022/10/21-02.pdf">Working paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Journal of Applied Econometrics<span class="vol">, 38(2), 242&ndash;259</span></span> <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jae.2949">DOI <span class="arr">&#8599;</span></a> <a href="https://chairegestiondesrisques.hec.ca/wp-content/uploads/2022/10/21-02.pdf">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -398,21 +443,7 @@
         <div>
           <p class="pub-title">Managing weather risk with a neural network-based index insurance</p>
           <p class="authors">With Zhanhui Chen, Jinggong Zhang &amp; Wenjun Zhu</p>
-          <div class="meta"><span class="venue">Management Science<span class="vol">, 70(7), 4306&ndash;4327</span></span></div>
-          <div class="links">
-            <a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2023.4902">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3539811">Working paper <span class="arr">&#8599;</span></a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="forth">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
-        <div>
-          <p class="pub-title">Cyber insurance modeling: a discrete multivariate count process approach</p>
-          <p class="authors">With Wenjun Zhu &amp; Jinggong Zhang</p>
-          <div class="meta"><span class="venue">Scandinavian Actuarial Journal</span><span class="tag forth">Forthcoming</span></div>
-          <div class="links"><a href="https://www.tandfonline.com/doi/full/10.1080/03461238.2023.2289374">DOI <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Management Science<span class="vol">, 70(7), 4306&ndash;4327</span></span> <a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2023.4902">DOI <span class="arr">&#8599;</span></a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3539811">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -421,8 +452,7 @@
         <div>
           <p class="pub-title">A simple Bayesian state-space approach to the collective risk models</p>
           <p class="authors">With Jaeyoun Ahn &amp; Himchan Jeong</p>
-          <div class="meta"><span class="venue">Scandinavian Actuarial Journal<span class="vol">, 2023(5), 509&ndash;529</span></span></div>
-          <div class="links"><a href="https://arxiv.org/abs/2110.09657">Working paper <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Scandinavian Actuarial Journal<span class="vol">, 2023(5), 509&ndash;529</span></span> <a href="https://arxiv.org/abs/2110.09657">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -431,11 +461,7 @@
         <div>
           <p class="pub-title">On the ordering of credibility factors</p>
           <p class="authors">With Jaeyoun Ahn &amp; Himchan Jeong</p>
-          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 101(B), 626&ndash;638</span></span></div>
-          <div class="links">
-            <a href="https://doi.org/10.1016/j.insmatheco.2021.10.005">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://arxiv.org/pdf/2109.07956.pdf">Working paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 101(B), 626&ndash;638</span></span> <a href="https://doi.org/10.1016/j.insmatheco.2021.10.005">DOI <span class="arr">&#8599;</span></a> <a href="https://arxiv.org/pdf/2109.07956.pdf">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -444,8 +470,7 @@
         <div>
           <p class="pub-title">Wishart&ndash;gamma random effects models with applications to nonlife insurance</p>
           <p class="authors">With Michel Denuit</p>
-          <div class="meta"><span class="venue">Journal of Risk and Insurance<span class="vol">, 88(2), 443&ndash;481</span></span></div>
-          <div class="links"><a href="https://onlinelibrary.wiley.com/doi/10.1111/jori.12327">DOI <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Journal of Risk and Insurance<span class="vol">, 88(2), 443&ndash;481</span></span> <a href="https://onlinelibrary.wiley.com/doi/10.1111/jori.12327">DOI <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -454,11 +479,7 @@
         <div>
           <p class="pub-title">Dynamic Bayesian ratemaking: a Markov chain approximation approach</p>
           <p class="authors">With Hong Li &amp; Wenjun Zhu</p>
-          <div class="meta"><span class="venue">North American Actuarial Journal<span class="vol">, 25(2)</span></span><span class="badge">SOA grant</span></div>
-          <div class="links">
-            <a href="https://www.tandfonline.com/eprint/REQ5QVRFKUZQA5CJCMQE/full?target=10.1080/10920277.2020.1716809">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3309598">Working paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">North American Actuarial Journal<span class="vol">, 25(2)</span></span> <span class="badge">SOA grant</span> <a href="https://www.tandfonline.com/eprint/REQ5QVRFKUZQA5CJCMQE/full?target=10.1080/10920277.2020.1716809">DOI <span class="arr">&#8599;</span></a> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3309598">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -467,11 +488,7 @@
         <div>
           <p class="pub-title">Flexible (panel) regression models for bivariate count&ndash;continuous data with an insurance application</p>
           <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">Journal of the Royal Statistical Society: Series A<span class="vol">, 182(4), 1503&ndash;1521</span></span></div>
-          <div class="links">
-            <a href="https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssa.12470">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/h9k3k1coup0fwdj/flexiblepoisson.pdf?dl=0">Paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Journal of the Royal Statistical Society: Series A<span class="vol">, 182(4), 1503&ndash;1521</span></span> <a href="https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssa.12470">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/h9k3k1coup0fwdj/flexiblepoisson.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -480,12 +497,7 @@
         <div>
           <p class="pub-title">Dynamic frailty count process in insurance: a unified framework for estimation, pricing, and forecasting</p>
           <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">Journal of Risk and Insurance<span class="vol">, 85(4), 1083&ndash;1102</span></span></div>
-          <div class="links">
-            <a href="http://onlinelibrary.wiley.com/doi/10.1111/jori.12190/full">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/rrarar2wpnhm4m7/publication2.pdf?dl=0">Preprint <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/94xr52icj300m0r/appendix.pdf?dl=0">Appendix <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Journal of Risk and Insurance<span class="vol">, 85(4), 1083&ndash;1102</span></span> <a href="http://onlinelibrary.wiley.com/doi/10.1111/jori.12190/full">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/rrarar2wpnhm4m7/publication2.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/94xr52icj300m0r/appendix.pdf?dl=0">Online appendix <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -495,29 +507,18 @@
   <!-- ============ LIFE ============ -->
   <section class="area" id="life">
     <div class="area-head">
-      <div class="area-eyebrow"><span class="idx">02</span><span>Life insurance</span><span class="count" data-count></span></div>
+      <div class="area-eyebrow"><span class="idx">03</span><span>Life insurance</span></div>
       <h2 class="area-title">Life insurance</h2>
       <p class="area-desc">Longevity, mortality, long-term care, and competing-risks modeling.</p>
     </div>
     <ol class="pubs">
-
-      <li class="pub" data-status="rr">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">R&amp;R</span></div>
-        <div>
-          <p class="pub-title">Longevity and long-term care</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Journal of Econometrics</span><span class="tag rr">Revise &amp; resubmit</span></div>
-          <div class="links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2347735">Working paper <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
 
       <li class="pub" data-status="pub">
         <div class="pub-mark"><span class="yr">2023</span></div>
         <div>
           <p class="pub-title">Modelling mortality: a Bayesian factor-augmented VAR (FAVAR) approach</p>
           <p class="authors">With Dan Zhu</p>
-          <div class="meta"><span class="venue">ASTIN Bulletin<span class="vol">, 53(1), 29&ndash;61</span></span></div>
-          <div class="links"><a href="https://www.cambridge.org/core/journals/astin-bulletin-journal-of-the-iaa/article/modelling-mortality-a-bayesian-factoraugmented-var-favar-approach/217EDB2EE96BCA04B89D0BE69E22B7D6">Open access <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">ASTIN Bulletin<span class="vol">, 53(1), 29&ndash;61</span></span> <a href="https://www.cambridge.org/core/journals/astin-bulletin-journal-of-the-iaa/article/modelling-mortality-a-bayesian-factoraugmented-var-favar-approach/217EDB2EE96BCA04B89D0BE69E22B7D6">Open access <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -526,28 +527,7 @@
         <div>
           <p class="pub-title">Coherent mortality forecasting for less developed countries</p>
           <p class="authors">With Hong Li &amp; Pintao Lyu</p>
-          <div class="meta"><span class="venue">Risks<span class="vol">, 9(9), 151</span></span></div>
-          <div class="links"><a href="https://www.mdpi.com/2227-9091/9/9/151">DOI <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2019</span></div>
-        <div>
-          <p class="pub-title">Modeling cause-of-death mortality using hierarchical Archimedean copula</p>
-          <p class="authors">With Hong Li</p>
-          <div class="meta"><span class="venue">Scandinavian Actuarial Journal<span class="vol">, 2019(3), 247&ndash;272</span></span></div>
-          <div class="links"><a href="https://www.tandfonline.com/eprint/QHtt9xPe4CqWXuZRMRJk/full?target=10.1080/03461238.2018.1546224">DOI <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2019</span></div>
-        <div>
-          <p class="pub-title">A forecast reconciliation approach to cause-of-death mortality modeling</p>
-          <p class="authors">With Hong Li, Han Li &amp; Anastasios Panagiotelis</p>
-          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 86, 122&ndash;133</span></span></div>
-          <div class="links"><a href="https://doi.org/10.1016/j.insmatheco.2019.02.011">DOI <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Risks<span class="vol">, 9(9), 151</span></span> <a href="https://www.mdpi.com/2227-9091/9/9/151">DOI <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -556,11 +536,25 @@
         <div>
           <p class="pub-title">The distribution of unobserved heterogeneity in competing risks models</p>
           <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">Statistical Papers<span class="vol">, 61(2), 681&ndash;696</span></span></div>
-          <div class="links">
-            <a href="https://link.springer.com/content/pdf/10.1007%2Fs00362-017-0956-y.pdf">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/gor1jgria446ox2/frailty.pdf?dl=0">Preprint <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Statistical Papers<span class="vol">, 61(2), 681&ndash;696</span></span> <a href="https://link.springer.com/content/pdf/10.1007%2Fs00362-017-0956-y.pdf">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/gor1jgria446ox2/frailty.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2019</span></div>
+        <div>
+          <p class="pub-title">Modeling cause-of-death mortality using hierarchical Archimedean copula</p>
+          <p class="authors">With Hong Li</p>
+          <div class="meta"><span class="venue">Scandinavian Actuarial Journal<span class="vol">, 2019(3), 247&ndash;272</span></span> <a href="https://www.tandfonline.com/eprint/QHtt9xPe4CqWXuZRMRJk/full?target=10.1080/03461238.2018.1546224">DOI <span class="arr">&#8599;</span></a></div>
+        </div>
+      </li>
+
+      <li class="pub" data-status="pub">
+        <div class="pub-mark"><span class="yr">2019</span></div>
+        <div>
+          <p class="pub-title">A forecast reconciliation approach to cause-of-death mortality modeling</p>
+          <p class="authors">With Hong Li, Han Li &amp; Anastasios Panagiotelis</p>
+          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 86, 122&ndash;133</span></span> <a href="https://doi.org/10.1016/j.insmatheco.2019.02.011">DOI <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -569,11 +563,7 @@
         <div>
           <p class="pub-title">A Bayesian non-parametric model for small population mortality</p>
           <p class="authors">With Hong Li</p>
-          <div class="meta"><span class="venue">Scandinavian Actuarial Journal<span class="vol">, 2018(7), 605&ndash;628</span></span></div>
-          <div class="links">
-            <a href="https://www.tandfonline.com/eprint/XRtb9faXbtBfSHrmvSc2/full">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/650zitexxpq7f2p/correlatedcredibility.pdf?dl=0">Preprint <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">Scandinavian Actuarial Journal<span class="vol">, 2018(7), 605&ndash;628</span></span> <a href="https://www.tandfonline.com/eprint/XRtb9faXbtBfSHrmvSc2/full">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/650zitexxpq7f2p/correlatedcredibility.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -582,11 +572,7 @@
         <div>
           <p class="pub-title">Broken-heart, common life, heterogeneity: analyzing the spousal mortality dependence</p>
           <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">ASTIN Bulletin<span class="vol">, 47(3), 837&ndash;874</span></span></div>
-          <div class="links">
-            <a href="https://doi.org/10.1017/asb.2017.8">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/79wtrleroebg59h/publication4.pdf?dl=0">Paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">ASTIN Bulletin<span class="vol">, 47(3), 837&ndash;874</span></span> <a href="https://doi.org/10.1017/asb.2017.8">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/79wtrleroebg59h/publication4.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -595,11 +581,7 @@
         <div>
           <p class="pub-title">Coherent forecasting of mortality rates: a sparse vector-autoregression approach</p>
           <p class="authors">With Hong Li</p>
-          <div class="meta"><span class="venue">ASTIN Bulletin<span class="vol">, 47(2), 563&ndash;600</span></span></div>
-          <div class="links">
-            <a href="https://doi.org/10.1017/asb.2016.37">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/jj3qcr8cw9xtuva/publication3.pdf?dl=0">Paper <span class="arr">&#8599;</span></a>
-          </div>
+          <div class="meta"><span class="venue">ASTIN Bulletin<span class="vol">, 47(2), 563&ndash;600</span></span> <a href="https://doi.org/10.1017/asb.2016.37">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/jj3qcr8cw9xtuva/publication3.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -608,255 +590,16 @@
         <div>
           <p class="pub-title">Love and death: a Freund model with frailty</p>
           <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 63, 191&ndash;203</span></span></div>
-          <div class="links">
-            <a href="https://doi.org/10.1016/j.insmatheco.2015.03.016">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/och6onx9s3zeweq/publication1.pdf?dl=0">Paper <span class="arr">&#8599;</span></a>
-          </div>
-        </div>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- ============ FINANCE ============ -->
-  <section class="area" id="finance">
-    <div class="area-head">
-      <div class="area-eyebrow"><span class="idx">03</span><span>Finance</span><span class="count" data-count></span></div>
-      <h2 class="area-title">Finance</h2>
-      <p class="area-desc">My initial interest was in affine models. More recently I have focused on model risk in finance and insurance — misspecification and identification, and model testing (Expected Shortfall and expectile backtesting).</p>
-    </div>
-    <ol class="pubs">
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2023</span></div>
-        <div>
-          <p class="pub-title">Noncausal affine processes with applications to derivative pricing</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Mathematical Finance<span class="vol">, 33(3), 766&ndash;796</span></span></div>
-          <div class="links"><a href="https://doi.org/10.1111/mafi.12384">Open access <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2019</span></div>
-        <div>
-          <p class="pub-title">Bivariate integer-autoregressive process with an application to mutual fund flows</p>
-          <p class="authors">With Serge Darolles, Gaëlle Le Fol &amp; Ran Sun</p>
-          <div class="meta"><span class="venue">Journal of Multivariate Analysis<span class="vol">, 173, 181&ndash;203</span></span></div>
-          <div class="links">
-            <a href="https://doi.org/10.1016/j.jmva.2019.02.015">DOI <span class="arr">&#8599;</span></a>
-            <a href="http://ssrn.com/abstract=3222947">Paper <span class="arr">&#8599;</span></a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2019</span></div>
-        <div>
-          <p class="pub-title">Least impulse response estimator for stress test exercises</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Journal of Banking &amp; Finance<span class="vol">, 103, 62&ndash;77</span></span></div>
-          <div class="links">
-            <a href="https://doi.org/10.1016/j.jbankfin.2019.03.021">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/m7w7irg6g0fbshk/LIR_nonblindedversion.pdf?dl=0">Paper <span class="arr">&#8599;</span></a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2026</span></div>
-        <div>
-          <p class="pub-title">Partial observability of implied volatility matrices: identification and covolatilities filtering</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Mathematical Finance<span class="vol">, 36(1), 48&ndash;66</span></span></div>
-          <div class="links"><a href="https://onlinelibrary.wiley.com/doi/10.1111/mafi.12468">Open access <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="sub">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Submitted</span></div>
-        <div>
-          <p class="pub-title">Ultra long run term structure models</p>
-          <p class="authors">With Christian Gouriéroux &amp; Alain Monfort</p>
-          <div class="meta"><span class="venue">Submitted</span><span class="tag sub">Submitted</span></div>
-          <div class="links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4160206">Paper <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="sub">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Submitted</span></div>
-        <div>
-          <p class="pub-title">Backtesting Expected Shortfall: accounting for both duration and severity using bivariate orthogonal polynomials</p>
-          <p class="authors">With Sullivan Hué &amp; Christophe Hurlin</p>
-          <div class="meta"><span class="venue">Submitted</span><span class="tag sub">Submitted</span></div>
-          <div class="links"><a href="https://arxiv.org/pdf/2405.02012">arXiv <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2026</span></div>
-        <div>
-          <p class="pub-title">Backtesting expectile: disentangling unconditional coverage and independence properties</p>
-          <p class="authors">With Jesus Armando de Ita Solis, Mélina Mailhot &amp; Xiaochun Meng</p>
-          <div class="meta"><span class="venue">Risk Sciences<span class="vol">, art. 100051</span></span></div>
-          <div class="links"><a href="https://doi.org/10.1016/j.risk.2026.100051">Open access <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Insurance: Mathematics and Economics<span class="vol">, 63, 191&ndash;203</span></span> <a href="https://doi.org/10.1016/j.insmatheco.2015.03.016">DOI <span class="arr">&#8599;</span></a> <a href="https://www.dropbox.com/s/och6onx9s3zeweq/publication1.pdf?dl=0">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
       <li class="pub" data-status="rr">
         <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">R&amp;R</span></div>
         <div>
-          <p class="pub-title">Risk analysis of random sets with applications to basket derivatives</p>
-          <p class="authors">With Christian Gouriéroux &amp; Alain Monfort</p>
-          <div class="meta"><span class="venue">Journal of Financial Econometrics</span><span class="tag rr">Revise &amp; resubmit</span></div>
-          <div class="links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4534473">Paper <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- ============ TIME SERIES ============ -->
-  <section class="area" id="timeseries">
-    <div class="area-head">
-      <div class="area-eyebrow"><span class="idx">04</span><span>Dependence &amp; time series</span><span class="count" data-count></span></div>
-      <h2 class="area-title">Dependence modeling &amp; count time series</h2>
-      <p class="area-desc">New count and integer-valued time series models for insurance and finance — for instance, to quantify the liquidity of assets or funds. Recent interests include nonstationary models, motivated by climate change in insurance claims, and determinantal point processes.</p>
-    </div>
-    <ol class="pubs">
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2021</span></div>
-        <div>
-          <p class="pub-title">Noncausal counting processes: a queuing perspective</p>
+          <p class="pub-title">Longevity and long-term care</p>
           <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Electronic Journal of Statistics<span class="vol">, 15(2), 3852&ndash;3891</span></span></div>
-          <div class="links"><a href="https://doi.org/10.1214/21-EJS1875">Open access <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2021</span></div>
-        <div>
-          <p class="pub-title">The predictive distributions of thinning-based count processes</p>
-          <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">Scandinavian Journal of Statistics<span class="vol">, 48(1), 42&ndash;67</span></span></div>
-          <div class="links">
-            <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/sjos.12438">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3095219">Paper <span class="arr">&#8599;</span></a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2020</span></div>
-        <div>
-          <p class="pub-title">A simple parameter-driven binary time series model</p>
-          <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">Journal of Forecasting<span class="vol">, 39(2), 187&ndash;199</span></span></div>
-          <div class="links">
-            <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/for.2621">DOI <span class="arr">&#8599;</span></a>
-            <a href="https://www.dropbox.com/s/uat0zwyhbo0anl1/autoregressivedirichletprocess.pdf?dl=0">Paper <span class="arr">&#8599;</span></a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2019</span></div>
-        <div>
-          <p class="pub-title">Negative binomial autoregressive process with stochastic intensity</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Journal of Time Series Analysis<span class="vol">, 40(2), 225&ndash;247</span></span></div>
-          <div class="links"><a href="http://doi.org/10.1111/jtsa.12441">DOI <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="forth">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
-        <div>
-          <p class="pub-title">SIR model with stochastic transmission</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Canadian Journal of Statistics</span><span class="tag forth">Forthcoming</span></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="forth">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
-        <div>
-          <p class="pub-title">Mixed causal&ndash;noncausal count process</p>
-          <p class="authors">With Jian Pei &amp; Fukang Zhu</p>
-          <div class="meta"><span class="venue">TEST</span><span class="tag forth">Forthcoming</span></div>
-          <div class="links"><a href="https://www.researchgate.net/publication/370980982_Mixed_Causal-Noncausal_Count_Process">Paper <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="forth">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
-        <div>
-          <p class="pub-title">Forecasting natural disaster frequencies using nonstationary count time series models</p>
-          <p class="authors">With Jian Pei</p>
-          <div class="meta"><span class="venue">Statistical Papers</span><span class="tag forth">Forthcoming</span></div>
-          <div class="links"><a href="https://www.researchgate.net/publication/374751092_Forecasting_natural_disaster_frequencies_using_nonstationary_count_time_series_models">Paper <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="pub">
-        <div class="pub-mark"><span class="yr">2026</span></div>
-        <div>
-          <p class="pub-title">Markov determinantal point process for dynamic random set</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Journal of Time Series Analysis <span class="vol">(online first)</span></span></div>
-          <div class="links"><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jtsa.12823">DOI <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="forth">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Forthcoming</span></div>
-        <div>
-          <p class="pub-title">Estimation of the intercept parameter in an integrated Galton&ndash;Watson process</p>
-          <p class="authors">Single author</p>
-          <div class="meta"><span class="venue">Journal of Time Series Analysis</span><span class="tag forth">Forthcoming</span></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="wp">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
-        <div>
-          <p class="pub-title">Corrigendum and comments to Tang &amp; Tang (2023), &ldquo;The Poisson binomial distribution &mdash; old and new&rdquo;</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Working paper</span><span class="tag wp">Working paper</span></div>
-          <div class="links"><a href="https://www.researchgate.net/publication/377111614_Corrigendum_and_Comments_to_Tang_and_Tang_2023_The_Poisson_Binomial_Distribution-Old_and_New_Statistical_Science">Paper <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="wp">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
-        <div>
-          <p class="pub-title">Linear-type conditional specifications for multivariate count variables</p>
-          <p class="authors">With Wei Sun</p>
-          <div class="meta"><span class="venue">Working paper</span><span class="tag wp">Working paper</span></div>
-          <div class="links"><a href="https://arxiv.org/abs/2502.20227">arXiv <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="wp">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
-        <div>
-          <p class="pub-title">A simple estimator of the correlation kernel matrix of a determinantal point process</p>
-          <p class="authors">With Christian Gouriéroux</p>
-          <div class="meta"><span class="venue">Working paper</span><span class="tag wp">Working paper</span></div>
-          <div class="links"><a href="https://arxiv.org/abs/2505.14529">arXiv <span class="arr">&#8599;</span></a></div>
-        </div>
-      </li>
-
-      <li class="pub" data-status="wp">
-        <div class="pub-mark"><span class="yr">&mdash;</span><span class="st">Working</span></div>
-        <div>
-          <p class="pub-title">Near-unit-root theory for affine processes</p>
-          <p class="authors">With Gael Anne, Xuewen Yu &amp; Xiaowen Zhou</p>
-          <div class="meta"><span class="venue">Working paper</span><span class="tag wp">Working paper</span></div>
-          <div class="links"><a href="https://arxiv.org/abs/2605.27859">arXiv <span class="arr">&#8599;</span></a></div>
+          <div class="meta"><span class="venue">Journal of Econometrics</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2347735">Working paper version <span class="arr">&#8599;</span></a></div>
         </div>
       </li>
 
@@ -874,55 +617,34 @@
 (function(){
   var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
   var groups = { all:function(){return true;}, pub:'pub', forth:'forth', review:function(s){return s==='rr'||s==='sub';}, wp:'wp' };
-
   function matchGroup(key, status){
     var g = groups[key];
     if(typeof g === 'function') return g(status);
     return status === g;
   }
-
-  document.querySelectorAll('.pill .n').forEach(function(el){
-    var key = el.getAttribute('data-c');
-    var n = pubs.filter(function(p){ return matchGroup(key, p.dataset.status); }).length;
-    el.textContent = n;
-  });
-
-  document.querySelectorAll('.area').forEach(function(sec){
-    var n = sec.querySelectorAll('.pub').length;
-    var c = sec.querySelector('[data-count]');
-    if(c) c.textContent = n + (n===1?' paper':' papers');
-  });
-  document.getElementById('stat-total').textContent = pubs.length;
-
-  var activeFilter = 'all';
-  var query = '';
-
+  var activeFilter='all', query='';
   function apply(){
-    var visibleTotal = 0;
+    var visible=0;
     pubs.forEach(function(p){
-      var okFilter = matchGroup(activeFilter, p.dataset.status);
-      var okQuery = query === '' || p.textContent.toLowerCase().indexOf(query) !== -1;
-      var show = okFilter && okQuery;
-      p.style.display = show ? '' : 'none';
-      if(show){ visibleTotal++; }
+      var ok = matchGroup(activeFilter,p.dataset.status) && (query===''||p.textContent.toLowerCase().indexOf(query)!==-1);
+      p.style.display = ok?'':'none';
+      if(ok) visible++;
     });
     document.querySelectorAll('.area').forEach(function(sec){
       var any = Array.prototype.slice.call(sec.querySelectorAll('.pub')).some(function(p){return p.style.display!=='none';});
-      sec.style.display = any ? '' : 'none';
+      sec.style.display = any?'':'none';
     });
-    document.getElementById('empty').style.display = visibleTotal===0 ? 'block' : 'none';
+    document.getElementById('empty').style.display = visible===0?'block':'none';
   }
-
   document.querySelectorAll('.pill').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      activeFilter = btn.getAttribute('data-filter');
-      document.querySelectorAll('.pill').forEach(function(b){ b.setAttribute('aria-pressed', b===btn ? 'true':'false'); });
+    btn.addEventListener('click',function(){
+      activeFilter=btn.getAttribute('data-filter');
+      document.querySelectorAll('.pill').forEach(function(b){b.setAttribute('aria-pressed', b===btn?'true':'false');});
       apply();
     });
   });
-
-  var qinput = document.getElementById('q');
-  qinput.addEventListener('input', function(){ query = qinput.value.trim().toLowerCase(); apply(); });
+  var q=document.getElementById('q');
+  q.addEventListener('input',function(){query=q.value.trim().toLowerCase();apply();});
 })();
 </script>
 </body>
